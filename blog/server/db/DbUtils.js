@@ -30,6 +30,4 @@ db.async.run = (sql, params) => {
     })
 }
 
-
-
 module.exports = {db, genid}

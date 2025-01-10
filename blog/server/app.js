@@ -27,7 +27,9 @@ const update = multer({
 // update.any() は、特定のファイルタイプに制限されることなく、任意のタイプのファイルを受け入れることを意味する
 app.use(update.any());  
 
+// 登録ルート
 app.use("/test", require("./routers/TestRouter"));
+app.use("/admin", require("./routers/AdminRouter"))
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
