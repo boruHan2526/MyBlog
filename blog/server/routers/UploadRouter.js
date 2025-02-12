@@ -3,11 +3,11 @@ const router = express.Router();
 const fs = require("fs")
 const { db, genid } = require("../db/DbUtils");
 
-router.post("/_token/rich_editor_upload", async (req, res) => {
+router.post("/rich_editor_upload", async (req, res) => {
     if(!req.files){
         res.send({
             "errno": 1,
-            "message": "失败信息"
+            "message": "ERROR MSG"
         })
     }
 
@@ -26,7 +26,7 @@ router.post("/_token/rich_editor_upload", async (req, res) => {
     }
 
     res.send({
-        "error": 0,
+        "errno": 0,
         "data": {
             "url": ret_files[0]
         }

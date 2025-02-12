@@ -12,9 +12,9 @@ app.use(function (req, res, next) {
     //許可されたヘッダータイプ
     res.header("Access-Control-Allow-Headers", "*");
     //クロスオリジンで許可されるリクエストメソッド
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE. OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     if (req.method == "OPTIONS") {
-      return res.status(200);
+      res.sendStatus(200);
     } else {
       next();
     }
@@ -49,7 +49,7 @@ app.all("*", async(req, res, next) => {
     if(adminResult.err != null || adminResult.rows.length == 0){
       res.send({
         code: 403,
-        msg: "请先登录"
+        msg: "先にログインしてください"
       })
       return;  // 検証に失敗した場合、後続の処理を中止します
     }

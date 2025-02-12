@@ -15,14 +15,14 @@ router.get("/list", async(req, res) => {
     if(err == null){
         res.send({
             code: 200,
-            msg: "查询成功",
+            msg: "SUCCESS",
             rows
         })
     }
     else{
         res.send({
             code: 500,
-            msg: "查询失败",
+            msg: "ERROR",
             rows
         })
     }
@@ -37,13 +37,13 @@ router.delete("/_token/delete", async (req, res) => {
     if(err == null){
         res.send({
             code: 200,
-            msg: "删除成功"
+            msg: "SUCCESS"
         })
     }
     else{
         res.send({
             code: 500,
-            msg: "删除失败"
+            msg: "ERROR"
         })
     }
 });
@@ -57,13 +57,13 @@ router.put("/_token/update", async (req, res) => {
     if(err == null){
         res.send({
             code: 200,
-            msg: "修改成功"
+            msg: "SUCCESS"
         })
     }
     else{
         res.send({
             code: 500,
-            msg: "修改失败"
+            msg: "ERROR"
         })
     }
 });
@@ -77,13 +77,13 @@ router.post("/_token/add", async (req, res) => {
     if(err == null){
         res.send({
             code: 200,
-            msg: "添加成功"
+            msg: "SUCCESS"
         })
     }
     else{
         res.send({
             code: 500,
-            msg: "添加失败"
+            msg: "ERROR"
         })
     }
 

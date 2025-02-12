@@ -7,6 +7,8 @@ router.post("/login", async (req, res) => {
     let {account, password} = req.body;
     let {err, rows} = await db.async.all("select * from `admin` where `account` = ? AND `password` = ?", [account, password])
 
+    console.log("登録リクエスト既にもらった，req.body =", req.body);
+
     if(err == null && rows.length > 0){
 
         let login_token = uuidv4();
@@ -20,14 +22,14 @@ router.post("/login", async (req, res) => {
 
         res.send({
             code: 200,
-            msg: "登陆成功",
+            msg: "SUCCESS",
             data: admin_info
         })
     }
     else{
         res.send({
             code: 500,
-            msg: "登陆失败",  
+            msg: "ERROR",  
         })
     }
 })
